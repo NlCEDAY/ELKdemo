@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="phone" style="width: 600px;height: 400px"></div>
+    <script type="text/javascript" src="frame/jquery/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="frame/echarts/echarts.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            type : 'get',
+            url : 'fenzu',
+            dataType : 'json',
+            success : function (res) {
+                var Res = res;
+                var arr = [];
+                for (var re in Res){
+                     arr.push(Res[re]);
+                }
+                res.forEach(function (k,v) {
+                    
+                })
+                console.log(Res["utc"]);
+                var mc = echarts.init(document.getElementById("phone"));
+                var option = {
+                    title : {
+                        text : "nicedays"
+                    },
+                    color : ["#3aff00","#0090ff","#ee1b00"],
+                    series : [
+                        {
+                            name : "UTC",
+                            type : "pie",
+                            radius : '25%',
+                            center : ['50%','50%'],
+                            data : utcList,
+                            animation : true
+                        },
+                        {
+                            name : "UTC",
+                            type : "pie",
+                            radius : '25%',
+                            center : ['80%','80%'],
+                            data : rmfList,
+                            animation : true
+                        }
+
+
+            ]
+                };
+                mc.setOption(option);
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

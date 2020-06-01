@@ -1,0 +1,7 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-name: niceday-es
+      cluster-nodes: 192.168.56.101:9300
+      repositories:
+        enabled: true
